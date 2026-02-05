@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Start a Project</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Main Style -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="container">
+    <div class="logo">Master<span> M</span></div>
+    <a href="index.html" class="btn outline">← Back</a>
+  </div>
+</header>
+
+<section class="start-project">
+  <div class="project-wrapper">
+
+    <!-- LEFT IMAGE -->
+    <div class="project-image">
+      <img src="assets/images/project-side.jpg" alt="Start Project">
+    </div>
+
+    <!-- FORM -->
+    <form class="project-form" onsubmit="sendProjectWhatsApp(event)">
+      <h1>Start a Project</h1>
+      <p>
+        Tell me about your project and I’ll get back to you
+        with ideas, timeline, and pricing.
+      </p>
+
+      <div class="form-grid">
+        <div class="field">
+          <label>Your Name</label>
+          <input type="text" id="name" placeholder="John Doe" required>
+        </div>
+
+        <div class="field">
+          <label>Email Address</label>
+          <input type="email" id="email" placeholder="you@email.com" required>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Project Type</label>
+        <select id="type">
+          <option>Website</option>
+          <option>Graphic Design</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Project Budget</label>
+        <select id="budget">
+          <option>Select your budget</option>
+          <option>$5 - $10</option>
+          <option>$10 - $20</option>
+          <option>$20 - $40</option>
+          <option>$40 - $80</option>
+          <option>$80 - $100</option>
+          <option>$100 - $150</option>
+          <option>$150 - $200</option>
+          <option>$200 - $300</option>
+          <option>$300 - $500</option>
+          <option>$500+</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Project Details</label>
+        <textarea id="details" rows="4" placeholder="Describe your project..."></textarea>
+      </div>
+
+      <button type="submit" class="send-btn">
+        Send Project Request
+        <i class="fa-solid fa-paper-plane"></i>
+      </button>
+    </form>
+
+  </div>
+</section>
+
+<script>
+function sendProjectWhatsApp(e){
+  e.preventDefault();
+
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const type = document.getElementById("type").value;
+  const budget = document.getElementById("budget").value;
+  const details = document.getElementById("details").value;
+
+  const phone = "201025910607"; // رقمك بدون +
+
+  const text =
+    `New Project Request 🚀\n\n` +
+    `Name: ${name}\n` +
+    `Email: ${email}\n` +
+    `Project Type: ${type}\n` +
+    `Budget: ${budget}\n\n` +
+    `Details:\n${details}`;
+
+  window.open(
+    "https://wa.me/" + phone + "?text=" + encodeURIComponent(text),
+    "_blank"
+  );
+}
+</script>
+
+</body>
+</html>
+
