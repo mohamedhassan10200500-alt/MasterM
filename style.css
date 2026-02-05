@@ -1004,3 +1004,7 @@ body {
 .projects-grid img:hover {
   transform: scale(1.05);
 }
+body {
+  background: red !important;
+}
+
